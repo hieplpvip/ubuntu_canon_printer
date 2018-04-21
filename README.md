@@ -9,8 +9,8 @@ chmod +x canon_lbp_setup.sh
 ```
 ### Supported Models
 - LBP-810
-- LBP-1120
-- LBP-1210
+- LBP1120
+- LBP1210
 - LBP2900
 - LBP3000
 - LBP3010
