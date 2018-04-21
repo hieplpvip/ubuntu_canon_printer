@@ -26,14 +26,14 @@ DRIVER_VERSION='2.71-1'
 DRIVER_VERSION_COMMON='3.21-1'
 
 #Links to driver packages
-declare -A URL_DRIVER=([amd64_common]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/cndrvcups-common_3.21-1_amd64.deb' \
-[amd64_capt]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/cndrvcups-capt_2.71-1_amd64.deb' \
-[i386_common]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/cndrvcups-common_3.21-1_i386.deb' \
-[i386_capt]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/cndrvcups-capt_2.71-1_i386.deb')
+declare -A URL_DRIVER=([amd64_common]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/cndrvcups-common_3.21-1_amd64.deb' \
+[amd64_capt]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/cndrvcups-capt_2.71-1_amd64.deb' \
+[i386_common]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/cndrvcups-common_3.21-1_i386.deb' \
+[i386_capt]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/cndrvcups-capt_2.71-1_i386.deb')
 
 #Links to the autoshutdowntool utility
-declare -A URL_ASDT=([amd64]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/autoshutdowntool_1.00-1_amd64_deb.tar.gz' \
-[i386]='https://raw.githubusercontent.com/hieplpvip/canon_printer/master/autoshutdowntool_1.00-1_i386_deb.tar.gz')
+declare -A URL_ASDT=([amd64]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/autoshutdowntool_1.00-1_amd64_deb.tar.gz' \
+[i386]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/autoshutdowntool_1.00-1_i386_deb.tar.gz')
 
 #The compatibility of ppd files and printer models
 declare -A LASERSHOT=([LBP-810]=1120 [LBP-1120]=1120 [LBP-1210]=1210 \
