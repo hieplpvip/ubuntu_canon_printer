@@ -36,7 +36,7 @@ declare -A URL_ASDT=([amd64]='https://github.com/hieplpvip/canon_printer/raw/mas
 [i386]='https://github.com/hieplpvip/canon_printer/raw/master/Packages/autoshutdowntool_1.00-1_i386_deb.tar.gz')
 
 #The compatibility of ppd files and printer models
-declare -A LASERSHOT=([LBP-810]=1120 [LBP-1120]=1120 [LBP-1210]=1210 \
+declare -A LASERSHOT=([LBP-810]=1120 [LBP1120]=1120 [LBP1210]=1210 \
 [LBP2900]=2900 [LBP3000]=3000 [LBP3010]=3050 [LBP3018]=3050 [LBP3050]=3050 \
 [LBP3100]=3150 [LBP3108]=3150 [LBP3150]=3150 [LBP3200]=3200 [LBP3210]=3210 \
 [LBP3250]=3250 [LBP3300]=3300 [LBP3310]=3310 [LBP3500]=3500 [LBP5000]=5000 \
@@ -174,7 +174,7 @@ function canon_install() {
 			break
 		fi		
 	done
-	echo '***Driver Installation***'
+	echo '************Driver Installation************'
 	COMMON_FILE=cndrvcups-common_${DRIVER_VERSION_COMMON}_${ARCH}.deb
 	CAPT_FILE=cndrvcups-capt_${DRIVER_VERSION}_${ARCH}.deb
 	if [ ! -f $COMMON_FILE ]; then		
