@@ -2,8 +2,7 @@
 Script for installing the Linux CAPT Printer Driver for Canon LBP printers on Ubuntu 12.04, 12.10, 13.04, 13.10, 14.04, 14.10, 15.04, 15.10, 16.04, 16.10, 17.04, 17.10 of 32-bit and 64-bit architecture
 ### Install
 ```
-git clone https://github.com/hieplpvip/canon_printer.git
-cd canon_printer
+wget https://github.com/hieplpvip/canon_printer/raw/master/canon_lbp_setup.sh
 chmod +x canon_lbp_setup.sh
 ./canon_lbp_setup.sh
 ```
