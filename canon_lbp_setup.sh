@@ -289,14 +289,14 @@ exec /usr/sbin/ccpd start' > /etc/init/ccpd-start.conf
 		echo '#!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Name=captstatusui
+Name='$NAMEPRINTER'
 GenericName=Status monitor for Canon CAPT Printer
 Exec=captstatusui -P '$NAMEPRINTER'
 Terminal=false
 Type=Application
-Icon=/usr/share/icons/Humanity/devices/48/printer.svg' > "${XDG_DESKTOP_DIR}/captstatusui.desktop"
-		chmod 775 "${XDG_DESKTOP_DIR}/captstatusui.desktop"
-		chown $LOGIN_USER:$LOGIN_USER "${XDG_DESKTOP_DIR}/captstatusui.desktop"
+Icon=/usr/share/icons/Humanity/devices/48/printer.svg' > "${XDG_DESKTOP_DIR}/$NAMEPRINTER.desktop"
+		chmod 775 "${XDG_DESKTOP_DIR}/$NAMEPRINTER.desktop"
+		chown $LOGIN_USER:$LOGIN_USER "${XDG_DESKTOP_DIR}/$NAMEPRINTER.desktop"
 		#Install the autoshutdowntool utility for supported printer models
 		if [[ "${!ASDT_SUPPORTED_MODELS[@]}" =~ "$NAMEPRINTER" ]]; then
 			SERIALRANGE=(${ASDT_SUPPORTED_MODELS[$NAMEPRINTER]})

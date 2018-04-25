@@ -6,6 +6,8 @@ wget https://github.com/hieplpvip/canon_printer/raw/master/canon_lbp_setup.sh
 chmod +x canon_lbp_setup.sh
 ./canon_lbp_setup.sh
 ```
+### Notes
+After installation, there will be a shortcut on your Desktop. Launch it to monitor your printer (if it shows "Ready to Print", the installation is complete)
 ### Supported Models
 - LBP-810
 - LBP1120
