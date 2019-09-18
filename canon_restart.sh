@@ -5,7 +5,7 @@
 LOGIN_USER=$(logname)
 [ -z "$LOGIN_USER" ] && LOGIN_USER=$(who | head -1 | awk '{print $1}')
 
-echo 'Closing captstatusui'
+echo 'Killing captstatusui'
 killall captstatusui 2> /dev/null
 echo 'Stopping ccpd'
 service ccpd stop
@@ -23,7 +23,7 @@ do
 	fi
 done
 echo
-echo 'If the printer does not work, reboot the computer'
+echo 'If the printer still does not work, reboot the computer'
 echo 'Press any key to exit'
 echo -ne "Automatically exit in    second(s)\e[12D"
 sec=30
