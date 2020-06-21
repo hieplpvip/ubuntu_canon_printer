@@ -131,7 +131,7 @@ function canon_unistall() {
 
 function canon_install() {
 	echo
-	PS3='Please choose your priter: '
+	PS3='Please choose your printer: '
 	select NAMEPRINTER in $NAMESPRINTERS
 	do
 		[ -n "$NAMEPRINTER" ] && break
