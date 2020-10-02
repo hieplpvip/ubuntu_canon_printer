@@ -15,7 +15,7 @@ LOGIN_USER=$(logname)
 [ -z "$LOGIN_USER" ] && LOGIN_USER=$(who | head -1 | awk '{print $1}')
 
 #Load the file containing the path to the desktop
-if [ -f ~/.config/user-dirs.dirs ]; then 
+if [ -f ~/.config/user-dirs.dirs ]; then
 	source ~/.config/user-dirs.dirs
 else
 	XDG_DESKTOP_DIR="$HOME/Desktop"
@@ -97,7 +97,7 @@ function check_error() {
 	fi
 }
 
-function canon_unistall() {
+function canon_uninstall() {
 	if [ -f /usr/sbin/ccpdadmin ]; then
 		installed_model=$(ccpdadmin | grep LBP | awk '{print $3}')
 		if [ -n "$installed_model" ]; then
@@ -144,7 +144,7 @@ function canon_install() {
 		if [ "$REPLY" == "1" ]; then
 			CONECTION="usb"
 			while true
-			do	
+			do
 				#Looking for a device connected to the USB port
 				NODE_DEVICE=$(ls -1t /dev/usb/lp* 2> /dev/null | head -1)
 				if [ -n "$NODE_DEVICE" ]; then
@@ -172,12 +172,12 @@ function canon_install() {
 			read -s -n1
 			sleep 5
 			break
-		fi		
+		fi
 	done
 	echo '************Driver Installation************'
 	COMMON_FILE=cndrvcups-common_${DRIVER_VERSION_COMMON}_${ARCH}.deb
 	CAPT_FILE=cndrvcups-capt_${DRIVER_VERSION}_${ARCH}.deb
-	if [ ! -f $COMMON_FILE ]; then		
+	if [ ! -f $COMMON_FILE ]; then
 		sudo -u $LOGIN_USER wget -O $COMMON_FILE ${URL_DRIVER[${ARCH}_common]}
 		check_error WGET $? $COMMON_FILE
 	fi
@@ -304,7 +304,7 @@ start on (started cups and runlevel [2345])
 stop on runlevel [016]
 expect fork
 respawn
-exec /usr/sbin/ccpd start' > /etc/init/ccpd-start.conf	
+exec /usr/sbin/ccpd start' > /etc/init/ccpd-start.conf
 		fi
 		#Create captstatusui shortcut on desktop
 		echo '#!/usr/bin/env xdg-open
@@ -322,7 +322,7 @@ Icon=/usr/share/icons/Humanity/devices/48/printer.svg' > "${XDG_DESKTOP_DIR}/$NA
 		if [[ "${!ASDT_SUPPORTED_MODELS[@]}" =~ "$NAMEPRINTER" ]]; then
 			SERIALRANGE=(${ASDT_SUPPORTED_MODELS[$NAMEPRINTER]})
 			SERIALMIN=${SERIALRANGE[0]}
-			SERIALMAX=${SERIALRANGE[1]}	
+			SERIALMAX=${SERIALRANGE[1]}
 			if [[ ${#PRINTER_SERIAL} -eq ${#SERIALMIN} && $PRINTER_SERIAL > $SERIALMIN && $PRINTER_SERIAL < $SERIALMAX || $PRINTER_SERIAL == $SERIALMIN || $PRINTER_SERIAL == $SERIALMAX ]]; then
 				echo "Installing the autoshutdowntool utility"
 				ASDT_FILE=autoshutdowntool_1.00-1_${ARCH}_deb.tar.gz
@@ -332,7 +332,7 @@ Icon=/usr/share/icons/Humanity/devices/48/printer.svg' > "${XDG_DESKTOP_DIR}/$NA
 				fi
 				tar --gzip --extract --file=$ASDT_FILE --totals --directory=/usr/bin
 			fi
-		fi	
+		fi
 		#Start captstatusui
 		if [[ -n "$DISPLAY" ]] ; then
 			sudo -u $LOGIN_USER nohup captstatusui -P $NAMEPRINTER > /dev/null 2>&1 &
@@ -387,7 +387,7 @@ do
 		canon_install
 		break
 	elif [ "$opt" == 'Uninstall' ]; then
-		canon_unistall
+		canon_uninstall
 		break
 	elif [ "$opt" == 'Help' ]; then
 		canon_help
