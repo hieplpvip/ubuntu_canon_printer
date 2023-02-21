@@ -115,8 +115,6 @@ function canon_uninstall() {
 	echo 'Removing driver packages'
 	dpkg --purge cndrvcups-capt
 	dpkg --purge cndrvcups-common
-	echo 'Removing unused libraries and packages'
-	apt-get -y autoremove
 	echo 'Deleting settings'
 	[ -f /etc/init/ccpd-start.conf ] && rm /etc/init/ccpd-start.conf
 	[ -f /etc/udev/rules.d/85-canon-capt.rules ] && rm /etc/udev/rules.d/85-canon-capt.rules
@@ -185,8 +183,8 @@ function canon_install() {
 		sudo -u $LOGIN_USER wget -O $CAPT_FILE ${URL_DRIVER[${ARCH}_capt]}
 		check_error WGET $? $CAPT_FILE
 	fi
-	apt-get -y update
-	apt-get -y install libglade2-0 libcanberra-gtk-module
+	apt-get update
+	apt-get install libglade2-0 libcanberra-gtk-module
 	check_error PACKAGE $?
 	echo 'Installing common module for CUPS driver'
 	dpkg -i $COMMON_FILE
@@ -260,14 +258,14 @@ case $1 in
 esac
 exit 0' > /etc/init.d/ccpd
 	#Installation utilities for managing AppArmor
-	apt-get -y install apparmor-utils
+	apt-get install apparmor-utils
 	#Set AppArmor security profile for cupsd to complain mode
 	aa-complain /usr/sbin/cupsd
 	echo 'Restarting CUPS'
 	service cups restart
 	if [ $ARCH == 'amd64' ]; then
 		echo 'Installing 32-bit libraries required to run 64-bit printer driver'
-		apt-get -y install libatk1.0-0:i386 libcairo2:i386 libgtk2.0-0:i386 libpango1.0-0:i386 libstdc++6:i386 libpopt0:i386 libxml2:i386 libc6:i386
+		apt-get install libatk1.0-0:i386 libcairo2:i386 libgtk2.0-0:i386 libpango1.0-0:i386 libstdc++6:i386 libpopt0:i386 libxml2:i386 libc6:i386
 		check_error PACKAGE $?
 	fi
 	echo 'Installing the printer in CUPS'
