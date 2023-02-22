@@ -6,6 +6,15 @@ wget https://github.com/hieplpvip/canon_printer/raw/master/canon_lbp_setup.sh
 chmod +x canon_lbp_setup.sh
 ./canon_lbp_setup.sh
 ```
+### Restart service
+```
+sudo systemctl restart ccpd.service
+```
+Useful in case of printing errors like "ccp sending data error exit 1".
+I got this error:
+- while using all the paper in the printer tray
+- close the document before it was finished printing
+
 ### Notes
 After installation, there will be a shortcut on your Desktop. Run it to check your printer status (if it shows "Ready to Print", the printer is ready to use)
 ### Supported Models
