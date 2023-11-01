@@ -89,6 +89,7 @@ function check_error() {
 			'WGET') echo "Error while downloading file $3"
 				[ -n "$3" ] && [ -f "$3" ] && rm "$3";;
 			'PACKAGE') echo "Error installing package $3";;
+			'ARCH') echo "Error adding architecture $3";;
 			*) echo 'Error';;
 		esac
 		echo 'Press any key to exit'
@@ -266,6 +267,10 @@ exit 0' > /etc/init.d/ccpd
 	echo 'Restarting CUPS'
 	service cups restart
 	if [ $ARCH == 'amd64' ]; then
+		echo 'Adding i386 architecture'
+		dpkg --add-architecture i386
+		check_error ARCH $?
+		apt-get -y update
 		echo 'Installing 32-bit libraries required to run 64-bit printer driver'
 		apt-get -y install libatk1.0-0:i386 libcairo2:i386 libgtk2.0-0:i386 libpango1.0-0:i386 libstdc++6:i386 libpopt0:i386 libxml2:i386 libc6:i386
 		check_error PACKAGE $?
